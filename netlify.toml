@@ -1,0 +1,110 @@
+# Netlify Configuration for Chisa AI Smart Agriculture Assistant
+
+# Build Settings
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+# Function settings
+[functions]
+  node_bundler = "esbuild"
+
+# Headers for static assets
+[[headers]]
+  for = "/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Access-Control-Allow-Origin = "*"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Headers = "Content-Type, X-OpenAI-Key"
+    Access-Control-Allow-Methods = "GET, POST, OPTIONS"
+
+# --- API Redirects (Route /api/* to Netlify Functions) ---
+
+[[redirects]]
+  from = "/api/chat"
+  to = "/.netlify/functions/chat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/vision"
+  to = "/.netlify/functions/vision"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/weather"
+  to = "/.netlify/functions/weather"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/forecast"
+  to = "/.netlify/functions/forecast"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/crop-calendar"
+  to = "/.netlify/functions/crop-calendar"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/irrigation"
+  to = "/.netlify/functions/irrigation"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/market-prices"
+  to = "/.netlify/functions/market-prices"
+  status = 200
+  force = true
+
+# --- Static File Routes ---
+
+[[redirects]]
+  from = "/static/css/*"
+  to = "/static/css/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/static/js/*"
+  to = "/static/js/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/static/img/*"
+  to = "/static/img/:splat"
+  status = 200
+
+# --- HTML Routing ---
+
+[[redirects]]
+  from = "/"
+  to = "/templates/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/index.html"
+  to = "/templates/index.html"
+  status = 200
+
+# --- SPA Catch-all (must be last) ---
+
+[[redirects]]
+  from = "/*"
+  to = "/templates/index.html"
+  status = 200

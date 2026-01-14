@@ -1,0 +1,39 @@
+{
+    "version": 2,
+    "builds": [
+        {
+            "src": "server.js",
+            "use": "@vercel/node"
+        },
+        {
+            "src": "static/**",
+            "use": "@vercel/static"
+        },
+        {
+            "src": "templates/**",
+            "use": "@vercel/static"
+        }
+    ],
+    "rewrites": [
+        {
+            "source": "/api/(.*)",
+            "destination": "/server.js"
+        },
+        {
+            "source": "/static/(.*)",
+            "destination": "/static/$1"
+        },
+        {
+            "source": "/",
+            "destination": "/templates/index.html"
+        },
+        {
+            "source": "/index.html",
+            "destination": "/templates/index.html"
+        },
+        {
+            "source": "/((?!api/|static/).*)",
+            "destination": "/templates/index.html"
+        }
+    ]
+}

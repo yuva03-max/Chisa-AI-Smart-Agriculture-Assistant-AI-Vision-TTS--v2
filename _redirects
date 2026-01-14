@@ -1,0 +1,17 @@
+# Netlify Redirects for Chisa AI
+
+# API Routes -> Netlify Functions
+/api/chat           /.netlify/functions/chat    200
+/api/vision         /.netlify/functions/vision  200
+/api/weather        /.netlify/functions/weather 200
+/api/forecast       /.netlify/functions/forecast 200
+/api/crop-calendar  /.netlify/functions/crop-calendar 200
+/api/irrigation    /.netlify/functions/irrigation 200
+/api/market-prices  /.netlify/functions/market-prices 200
+
+# Root redirect
+/              /templates/index.html       200
+/index.html    /templates/index.html       200
+
+# SPA Fallback (must be last)
+/*             /templates/index.html       200
