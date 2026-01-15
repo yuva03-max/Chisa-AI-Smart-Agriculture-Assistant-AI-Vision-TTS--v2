@@ -33,7 +33,7 @@ exports.handler = async (event) => {
         const GROQ_API_KEY = "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";
 
         const response = await axios.post("https://api.groq.com/openai/v1/chat/completions", {
-            model: "llama-3.3-70b-versatile",
+            model: "meta-llama/llama-4-scout-17b-16e-instruct",
             messages: [
                 { role: "system", content: enhancedSystemPrompt },
                 { role: "user", content: user_prompt }
@@ -52,3 +52,4 @@ exports.handler = async (event) => {
         return { statusCode: 500, headers: CORS_HEADERS, body: JSON.stringify({ error: { message: error.message } }) };
     }
 };
+
