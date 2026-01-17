@@ -10,7 +10,7 @@ app.use(express.json({ limit: '50mb' }));
 app.use('/static', express.static(path.join(__dirname, 'static')));
 
 // Groq API Configuration
-const GROQ_API_KEY = "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";
+const GROQ_API_KEY = "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";
 const PRIMARY_MODEL = "meta-llama/llama-4-scout-17b-16e-instruct";
 const VISION_MODEL = "meta-llama/llama-4-scout-17b-16e-instruct";
 
@@ -215,6 +215,7 @@ const server = app.listen(PORT, () => {
 });
 
 module.exports = app;
+
 
 
 
