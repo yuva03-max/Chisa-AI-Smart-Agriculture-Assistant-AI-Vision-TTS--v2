@@ -16,7 +16,7 @@ exports.handler = async (event) => {
         const userPrompt = `Recommend irrigation schedule for ${crop} at ${growth_stage} stage. Climate: ${climate || 'Not specified'}.`;
         const systemPrompt = "You are an Irrigation Management Expert. Recommend schedules, promote water efficiency, and explain reasoning. Keep responses simple, clear, and farmer-friendly. Prefer step-by-step explanations when needed. Focus on Indian agriculture context. Avoid futuristic, creative, or non-practical responses.";
 
-        const GROQ_API_KEY = "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";
+        const GROQ_API_KEY = "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";
 
         const response = await axios.post("https://api.groq.com/openai/v1/chat/completions", {
             model: "meta-llama/llama-4-scout-17b-16e-instruct",
@@ -38,4 +38,5 @@ exports.handler = async (event) => {
         return { statusCode: 500, headers: CORS_HEADERS, body: JSON.stringify({ error: { message: error.message } }) };
     }
 };
+
 
