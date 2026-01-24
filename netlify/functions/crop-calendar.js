@@ -16,7 +16,7 @@ exports.handler = async (event) => {
         const userPrompt = `Generate a crop calendar for ${crop} in ${location || 'local region'} during ${season || 'current season'}.`;
         const systemPrompt = "You are an Expert AI Crop Calendar Generator. Include sowing, growth, irrigation phases, fertilization, and harvest timing. Keep responses simple, clear, and farmer-friendly. Prefer step-by-step explanations when needed. Focus on Indian agriculture context. Avoid futuristic, creative, or non-practical responses.";
 
-        const GROQ_API_KEY = "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";
+        const GROQ_API_KEY = "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";
 
         const response = await axios.post("https://api.groq.com/openai/v1/chat/completions", {
             model: "meta-llama/llama-4-scout-17b-16e-instruct",
@@ -38,6 +38,7 @@ exports.handler = async (event) => {
         return { statusCode: 500, headers: CORS_HEADERS, body: JSON.stringify({ error: { message: error.message } }) };
     }
 };
+
 
 
 
