@@ -11,8 +11,8 @@ app.use('/static', express.static(path.join(__dirname, 'static')));
 
 // Groq API Configuration
 const GROQ_API_KEY = "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";
-const PRIMARY_MODEL = "Llama 3.3 70B";
-const VISION_MODEL = "Llama 3.3 70B";
+const PRIMARY_MODEL = "Llama 3.1 8B Instant";
+const VISION_MODEL = "Llama 3.1 8B Instant";
 
 // Weather API Configuration
 const OPENWEATHER_API_KEY = "500889e3ed8865441bbfb67e99b9a412";
